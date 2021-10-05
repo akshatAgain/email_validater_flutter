@@ -16,48 +16,52 @@ class _ValidatorState extends State<Validator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          TextFormField(
-            controller: _emailController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2.0,
-                  color: Colors.white,
+          Padding(
+            padding: EdgeInsets.only(left: 8.0, right: 8),
+            child: TextFormField(
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 2.0,
+                    color: Colors.white,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 2.0,
+                    color: Colors.white,
+                  ),
+                ),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.blue,
+                ),
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "email",
+                hintStyle: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 17.0,
                 ),
               ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2.0,
-                  color: Colors.white,
-                ),
-              ),
-              prefixIcon: Icon(
-                Icons.email,
-                color: Colors.blue,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: "email",
-              hintStyle: TextStyle(
-                color: Colors.blue,
-                fontSize: 17.0,
-              ),
+              textInputAction: TextInputAction.next,
+              validator: (email) {},
             ),
-            textInputAction: TextInputAction.next,
-            validator: (email) {},
           ),
           FlatButton(
             child: Text(
               'Validate',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.blue),
             ),
-            color: Colors.blue,
+            color: Colors.white,
             onPressed: () {
               isValid = EmailValidator.validate(_emailController.text);
               if (isValid) {
@@ -89,3 +93,4 @@ class _ValidatorState extends State<Validator> {
     );
   }
 }
+
