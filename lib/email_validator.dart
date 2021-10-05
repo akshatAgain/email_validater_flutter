@@ -53,7 +53,6 @@ class _ValidatorState extends State<Validator> {
                 ),
               ),
               textInputAction: TextInputAction.next,
-              validator: (email) {},
             ),
           ),
           FlatButton(
